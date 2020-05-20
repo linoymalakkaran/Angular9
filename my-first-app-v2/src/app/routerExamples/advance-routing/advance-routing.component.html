@@ -1,0 +1,14 @@
+<section class="container">
+  <fieldset>
+    <legend>advance-routing works!</legend>
+    <div class="row">
+      <ul>
+        <li>Id: {{ user.id }}</li>
+        <li>Name: {{ user.name }}</li>
+      </ul>
+    </div>
+    <div>
+      <a [routerLink]="['/advanceRouting', 13, 'manju']">Reload Manju</a>
+    </div>
+  </fieldset>
+</section>

@@ -1,0 +1,104 @@
+<div class="container">
+  <section>
+    <fieldset>
+      <legend>High Light Directive</legend>
+      <p appHighlight>highlight works!</p>
+      <p appHighlight [defaultColor]="'yellow'" [highlightColor]="'red'">
+        highlight works!
+      </p>
+      <p appHighlight defaultColor="green" highlightColor="orange">
+        This also highlight works!
+      </p>
+    </fieldset>
+  </section>
+
+  <section>
+    <fieldset>
+      <legend>Structural Directives (ngClass,ngStyle,ngIf,ngFor)</legend>
+      <div class="row">
+        <div class="col-md-12">
+          <button class="btn btn-primary" (click)="onlyOdd = !onlyOdd">
+            Toggle odd and even
+          </button>
+          <br /><br />
+          <ul>
+            <div *ngIf="onlyOdd">
+              <li
+                class="list-group-item"
+                [ngClass]="{ odd: number % 2 !== 0 }"
+                [ngStyle]="{
+                  backgroundColor: number % 2 !== 0 ? 'yellow' : 'transparent'
+                }"
+                *ngFor="let number of oddNumbers"
+              >
+                {{ number }}
+              </li>
+            </div>
+            <ng-template [ngIf]="!onlyOdd">
+              <div>
+                <li
+                  class="list-group-item"
+                  [ngClass]="{ odd: number % 2 == 0 }"
+                  [ngStyle]="{
+                    backgroundColor: number % 2 == 0 ? 'green' : 'transparent'
+                  }"
+                  *ngFor="let number of evenNumbers"
+                >
+                  {{ number }}
+                </li>
+              </div>
+            </ng-template>
+          </ul>
+        </div>
+      </div>
+    </fieldset>
+  </section>
+
+  <section>
+    <fieldset>
+      <legend>custom Structural Directives (unless)</legend>
+      <div class="row">
+        <div class="col-md-12">
+          <button
+            class="btn btn-primary"
+            (click)="numbersToggle = !numbersToggle"
+          >
+            Toggle odd and even
+          </button>
+          <br /><br />
+          <ul>
+            <div *appUnless="numbersToggle">
+              <li
+                class="list-group-item"
+                [ngClass]="{ odd: number % 2 !== 0 }"
+                [ngStyle]="{
+                  backgroundColor: number % 2 !== 0 ? 'yellow' : 'transparent'
+                }"
+                *ngFor="let number of numbers"
+              >
+                {{ number }}
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </fieldset>
+  </section>
+  <section>
+    <fieldset>
+      <legend>ngSwitch)</legend>
+      <div class="row">
+        <div class="col-md-12" [ngSwitch]="switchValue">
+          <p>Possible values: 1 and 2</p>
+          <input type="text" [(ngModel)]="switchValue" />
+          <br />
+          <br />
+          <p>Switch Result:</p>
+          <p *ngSwitchCase="1">value: 1</p>
+          <p *ngSwitchCase="2">value: 2</p>
+          <p *ngSwitchDefault>No matching....!</p>
+        </div>
+      </div>
+    </fieldset>
+  </section>
+</div>
