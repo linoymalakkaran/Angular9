@@ -1,0 +1,25 @@
+<div class="row">
+    <br>
+  <div class="col-md-12">
+    <button class="btn btn-primary" (click)="loadSpecificServer(2,'server2')">
+      Load specific server(server2)
+    </button>
+  </div>
+  <div class="clearfix"></div>
+  <hr>
+  <div class="col-md-3">
+    <div class="list-group">
+      <a
+        [routerLink]="['/servers',server.id, server.name]"
+        fragment="loading"
+        href="#"
+        class="list-group-item"
+        *ngFor="let server of servers; let i = index"
+        >{{ server.name }}</a
+      >
+    </div>
+  </div>
+  <div class="col-md-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>

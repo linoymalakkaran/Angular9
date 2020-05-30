@@ -1,0 +1,41 @@
+<section>
+  <fieldset>
+    <legend>Add account</legend>
+    <form #f="ngForm" (ngSubmit)="OnCreateAccount(f)" novalidate>
+      <div class="form-group">
+        <div class="col-md-12">
+          <label for="id">Id</label>
+          <input
+            type="search"
+            class="form-control"
+            name="id"
+            id="userId"
+            ngModel
+            required
+            #id="ngModel"
+          />
+          <div class="col-md-12" *ngIf="!id.valid && id.touched">
+            User Id required
+          </div>
+        </div>
+        <div class="col-md-12">
+          <label for="name">Name</label>
+          <input
+            type="search"
+            class="form-control"
+            name="name"
+            id="userName"
+            ngModel
+          />
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <br />
+      <div class="col-md-12">
+        <button [disabled]="!f.valid" class="btn btn-primary m-3">
+          Add Account
+        </button>
+      </div>
+    </form>
+  </fieldset>
+</section>

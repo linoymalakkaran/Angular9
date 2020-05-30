@@ -1,0 +1,13 @@
+<div class="col-md-12">
+  <p>server - {{ server.id }} works!</p>
+  <p>Name - {{ server.name }}</p>
+  <br />
+  <a
+    [routerLink]="['/servers', server.id, 'edit', server.name]"
+    [queryParams]="{ allowEdit: '1' }"
+    fragment="loading"
+    href="#"
+    class="btn btn-primary"
+    >Edit</a
+  >
+</div>

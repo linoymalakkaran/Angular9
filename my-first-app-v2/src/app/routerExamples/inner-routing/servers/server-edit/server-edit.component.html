@@ -1,0 +1,43 @@
+<div class="col-md-12">
+  <div class="form-group">
+    <div class="col-md-12">
+      <label for="id">Id:</label>
+      <input
+        type="text"
+        class="form-control"
+        disabled="true"
+        [ngModel]="server.id"
+      />
+    </div>
+    <div class="col-md-12">
+      <label for="id">Name:</label>
+      <input type="text" class="form-control" [(ngModel)]="server.name" />
+    </div>
+  </div>
+  <div class="col-md-12">Update Server name: {{ server.name }}</div>
+
+  <div class="clearfix"></div>
+  <br />
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-3">
+        <a
+          (click)="updateServer()"
+          href="javascript:void(0);"
+          class="btn btn-primary"
+        >
+          Submit</a
+        >
+      </div>
+      <div class="col-md-3">
+        <a
+          [routerLink]="['/servers', server.id, server.name]"
+          href="#"
+          class="btn btn-warning"
+          >Back</a
+        >
+      </div>
+      <div class="col-md-6"></div>
+    </div>
+  </div>
+</div>
